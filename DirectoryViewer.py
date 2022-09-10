@@ -268,10 +268,10 @@ scan_dir_btn = Button(topFrame, text = "Scan Dir",font=("Arial", 9), bg='white',
 back_dir_btn = Button(topFrame, text = "Back",font=("Arial", 9), bg='white', command=display_parent_dir)
 
 curr_dir_label = Label(topFrame, text = f"Current Dir: ",font=("Arial", 11), bg='white', fg="black")
-dir_img = Image.open(join(Path(__file__).resolve().parent, "Untitled.png"))
-dir_img_photo = ImageTk.PhotoImage(dir_img)
+dir_img = Image.open(join(Path(__file__).resolve().parent, "file-open-icon.png"))
+dir_img_photo = ImageTk.PhotoImage(dir_img.resize((20, 20)))
 dir_img_label = Label(topFrame, image=dir_img_photo, bg='white', cursor="hand2")
-dir_img_label.bind("<Button-1>", lambda e: tkinter.messagebox.showinfo("Directory full path", f"{curr_dir_path} \n[{dirs_dict[curr_dir_path].size} Byte]"))
+dir_img_label.bind("<Button-1>", lambda e: dir_info_clicked())
 
 policy1_label = Label(topFrame, text = "* App ignores directories whose Windows path is more than 260 letters, in accordance with Windows API",font=("Arial", 8), bg='white')
 policy1_link = Label(topFrame, text='policy.',font=('Helveticabold', 8), bg="white", fg="blue", cursor="hand2")
@@ -287,7 +287,11 @@ policy1_link.place(relx=0.9, y=37, anchor='ne')
 curr_dir_label.place(x=40, y=65)
 dir_img_label.place(relx=1, y=65, anchor='ne')
 
-
+def dir_info_clicked():
+    global curr_dir_path
+    print(f"curr_dir_path={curr_dir_path}")
+    if(curr_dir_path!=''):
+        tkinter.messagebox.showinfo("Directory full path", f"{curr_dir_path} \n[{dirs_dict[curr_dir_path].size} Byte]")
 ##################################################
 graphCanvas = Canvas(graphFrame, width=400, height=400, bg='white', highlightthickness=0)
 
