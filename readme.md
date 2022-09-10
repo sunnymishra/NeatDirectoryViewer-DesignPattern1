@@ -11,6 +11,7 @@ Vid steps:
 - Break monolith function set_dir_canvas_with_data() into smaller function "Single responsibility SOLID"
 - Gibberish short names to variables,functions be changed to meaningful names. Add function comments if required.
 - Move labels, string literals, repeated constant values to Constant file.
+- Move utils methods to Util class
 - Introduce OOPS Class concept in code completely and remove Global variables, instead use Instance variables and pass important variables around in function arguments.
 - https://stackoverflow.com/q/49699802/1316967 uses `self`.rect to delete the rectangle in the callback func-> def oval_func(self,event): self.c.delete(self.rect)
 - Add desired Design patterns(Chain of responsibility for Logger type, Builder, Singleton, Factory Method)
