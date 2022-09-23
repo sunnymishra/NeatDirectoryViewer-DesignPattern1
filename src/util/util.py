@@ -1,8 +1,9 @@
-import Constant as const
+import src.util.constant as const
 from pathlib import Path
 
+
 def format_obj_name(obj, is_top_display=False):
-    max_name_len=const.listbox_max_name_len if(obj.is_dir) else const.listbox_max_name_len+len(const.dir_label)+1
+    max_name_len=const.listbox_max_name_len if(obj.is_dir) else const.listbox_max_name_len+len(const.dir_str)+1
     if(is_top_display):
         max_name_len=const.topdisplay_max_name_len
     name=obj.full_path if is_top_display else Path(obj.full_path).name
@@ -11,6 +12,7 @@ def format_obj_name(obj, is_top_display=False):
         listbox_large_name_strip_start_idx=int(max_name_len/2)
         name = name[0: listbox_large_name_strip_start_idx:] + '...' + name[listbox_large_name_strip_start_idx + charLenToStrip::]
     return name
+
 
 def format_bytes(size):
     power = 2**10  # 2**10 = 1024
