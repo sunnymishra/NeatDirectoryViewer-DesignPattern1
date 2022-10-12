@@ -26,9 +26,7 @@ class TopFrame(Frame):
         self.back_dir_link.bind("<Button-1>", lambda e: self.display_parent_dir())
 
         self.curr_dir_label = Label(self, text = "",font=("Arial", 11), bg='white', fg="black")
-        # pth = join(join(Path(__file__).resolve().parent.parent, "asset"), "file-open-icon.png")
-        # print(f"pth: {pth}")
-        dir_img = Image.open(join(join(Path(__file__).resolve().parent.parent, "asset"), "file-open-icon.png"))
+        dir_img = Image.open(join(join(Path(__file__).resolve().parent.parent, "asset"), const.dir_image_name))
         self.dir_img_photo = ImageTk.PhotoImage(dir_img.resize((20, 20)))
         dir_img_label = Label(self, image=self.dir_img_photo, bg='white', cursor="hand2")
         dir_img_label.bind("<Button-1>", lambda e: self.dir_info_clicked())

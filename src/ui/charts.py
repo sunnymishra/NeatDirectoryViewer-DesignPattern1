@@ -50,7 +50,6 @@ class PieChart():
             #     is_dir:{None if(item.objectDetail is None) else item.objectDetail.is_dir}, \
             #     sub_files:{None if(item.objectDetail is None) else item.objectDetail.sub_files}, \
             #     sub_dirs:{None if(item.objectDetail is None) else item.objectDetail.sub_dirs}, ")
-            # canvasItem = chartCanvas.find_withtag("pie"+str(item.rank))
 
             pie_angle_width=round((item.obj_size_fraction)*360, 3)
             tot_angle+=pie_angle_width

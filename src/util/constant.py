@@ -1,8 +1,15 @@
+# Project configs:
+log_file_path=''
+dir_image_name='file-open-icon.png'
+
+# Constant values:
 chart_colors={1:"#EA5D57", 2:"#FDC135", 3:"#4FB3E8", 4:"#99CF43", 5:"#08AEA1", 6:"#AAAAAA"}
 default_chart_color="#AAAAAA"
 listbox_max_name_len=35
 topdisplay_max_name_len=75
-# Labels below:
+
+
+# Labels:
 dir_str='[Folder]'
 piechart_str="Pie Chart"
 barchart_str="Bar Chart"
