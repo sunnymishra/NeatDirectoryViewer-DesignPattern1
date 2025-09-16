@@ -9,6 +9,7 @@ import src.model.crawler as crawler
 import src.util.constant as const
 import src.util.util as util
 from src.ui.charts import BarChart, PieChart
+import sys
 
 
 class TopFrame(Frame):
@@ -26,7 +27,11 @@ class TopFrame(Frame):
         self.back_dir_link.bind("<Button-1>", lambda e: self.display_parent_dir())
 
         self.curr_dir_label = Label(self, text = "",font=("Arial", 11), bg='white', fg="black")
-        dir_img = Image.open(join(join(Path(__file__).resolve().parent.parent, "asset"), const.dir_image_name))
+        if hasattr(sys, '_MEIPASS'):
+            asset_dir = Path(sys._MEIPASS) / "asset"
+        else:
+            asset_dir = Path(__file__).resolve().parent.parent / "asset"
+        dir_img = Image.open(asset_dir / const.dir_image_name)  # Adjusted path for pyinstaller
         self.dir_img_photo = ImageTk.PhotoImage(dir_img.resize((20, 20)))
         dir_img_label = Label(self, image=self.dir_img_photo, bg='white', cursor="hand2")
         dir_img_label.bind("<Button-1>", lambda e: self.dir_info_clicked())
